@@ -123,11 +123,13 @@ function App() {
         <div className="flex justify-center">
           <a className="text-primary text-sm font-bold">Create an account</a>
         </div>
-        {/* link end */}
+       { /* link end */}
       </div>
       {/* container end */}
     </main>
   );
+  
+  
 }
 
 export default App;

@@ -1,31 +1,37 @@
-import React, { useState } from 'react';
-import './PostCard.css';
+import React, { useState } from "react";
 
-const PostCard = ({ id, userId, title, body }) => {
+function PostCard({ id, userId, title, body }) {
   const [isClicked, setIsClicked] = useState(false);
 
-  const handleButtonClick = () => {
-    setIsClicked(!isClicked);
-  };
-
   return (
-    <div className="post-card">
-      <div className="post-header">
-        <h3 className="post-title">{title}</h3>
+    <div
+      className="
+      bg-white p-4 rounded-lg shadow-md transition-all duration-300 
+      flex flex-col justify-between 
+      hover:scale-[1.03] hover:shadow-xl hover:border hover:border-black hover:bg-pink-50"
+    >
+      <div className="text-center">
+        <h2 className="text-sm font-bold mb-2 capitalize leading-tight">
+          {title}
+        </h2>
+        <p className="text-gray-700 text-xs">{body}</p>
       </div>
-      <div className="post-body">
-        <p className="post-content">{body}</p>
-      </div>
-      <div className="post-footer">
-        <button 
-          className={`post-button ${isClicked ? 'clicked' : ''}`}
-          onClick={handleButtonClick}
-        >
-          {isClicked ? 'Tombol sudah diklik' : 'Silahkan Klik'}
-        </button>
-      </div>
+
+      <button
+        onClick={() => setIsClicked(true)}
+        disabled={isClicked}
+        className={`
+          mt-4 w-full p-2 rounded-md text-white text-sm font-medium
+          transition-all duration-200
+          ${isClicked ? "bg-Special-Red2" : "bg-gray-500"}
+          hover:brightness-110
+          disabled:opacity-70
+        `}
+      >
+        {isClicked ? "Tombol sudah diklik" : "Silakan Klik"}
+      </button>
     </div>
   );
-};
+}
 
 export default PostCard;
